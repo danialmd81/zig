@@ -1,0 +1,19 @@
+--- exercises/046_optionals2.zig	2024-05-10 23:11:25.796632478 +0200
++++ answers/046_optionals2.zig	2024-05-10 23:10:16.115335668 +0200
+@@ -21,7 +21,7 @@
+ 
+ const Elephant = struct {
+     letter: u8,
+-    tail: *Elephant = null, // Hmm... tail needs something...
++    tail: ?*Elephant = null, // <---- make this optional!
+     visited: bool = false,
+ };
+ 
+@@ -51,6 +51,6 @@
+         // We should stop once we encounter a tail that
+         // does NOT point to another element. What can
+         // we put here to make that happen?
+-        e = e.tail ???
++        e = e.tail orelse break;
+     }
+ }
